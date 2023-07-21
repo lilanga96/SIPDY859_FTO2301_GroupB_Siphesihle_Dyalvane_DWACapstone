@@ -1,9 +1,13 @@
+import ShowList from "./components/showLists"
 
 function App() {
+
   
   return (
     <>
-      <h1>Hello world!!</h1>
+    <ul>
+      <li><ShowList /></li>
+      </ul>
     </>
   )
 }
