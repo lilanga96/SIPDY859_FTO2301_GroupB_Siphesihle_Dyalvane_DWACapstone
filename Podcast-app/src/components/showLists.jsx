@@ -21,17 +21,20 @@ const ShowList = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
+  
 
   return (
     <div>
       {/* Display the list of shows */}
+      
       {shows.map((show) => (
         <div key={show.id}>
-          <h2>{show.name}</h2>
-          <img className="img" src={show.image} alt={show.name} />
-          <p>Number of Seasons:{show.seasons.length}</p>
-          <p>Last Updated:{show.lastUpdated}</p>
-          {/* Display genres here */}
+          <h2>{show.title}</h2>
+          <img className="img" src={show.image} alt={show.title} />
+          <p>Number of Seasons:{show.seasons}</p>
+          <p>Last Updated:{show.updated}</p>
+          <p>Genres: {show.genres}</p>
+          
           
         </div>
       ))}

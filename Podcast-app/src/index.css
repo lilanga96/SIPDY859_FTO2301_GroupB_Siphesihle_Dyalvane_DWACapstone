@@ -1,5 +1,18 @@
+*{
+    box-sizing: border-box;
+}
 .img{
     width: 100px;
     height: 100px;
     position: relative;
+}
+.Header{
+    height: 90px;
+    background: linear-gradient(90deg, #672280 0%, #A626D3 100%);
+    box-shadow: 0 0 20px
+}
+
+.Header > h2{
+    color: whitesmoke;
+    display: flex;
 }
