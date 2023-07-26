@@ -7,6 +7,12 @@ import Favorites from './components/favourites';
 
 
 const App = () => {
+  const [favorites, setFavorites] = React.useState([]);
+
+  const removeFromFavorites = (showId) => {
+    setFavorites(favorites.filter((show) => show.id !== showId));
+  };
+
   return (
     <Router>
       <div>
@@ -22,9 +28,11 @@ const App = () => {
         </nav>
 
         <Routes>
-        <Route path="/" element={<ShowLists />} />
-        <Route path="/show/:showId" element={<ShowDetails />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/" element={<ShowLists  favorites={favorites} setFavorites={setFavorites} removeFromFavorites={removeFromFavorites}/>} />
+        <Route path="/show/:id" element={<ShowDetails favorites={favorites} setFavorites={setFavorites} removeFromFavorites={removeFromFavorites}/>} />
+        <Route path="/favorites" element={<Favorites favorites={favorites} setFavorites={setFavorites}removeFromFavorites={removeFromFavorites} />} />
+      
+         
       </Routes>
       </div>
     </Router>

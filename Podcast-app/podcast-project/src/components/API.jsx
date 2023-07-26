@@ -6,7 +6,7 @@ export const fetchAllShows = () => {
   return axios.get(`${API_BASE_URL}/shows`);
 };
 
-export const fetchShowById = (showId) => {
-  return axios.get(`${API_BASE_URL}/shows/${showId}`);
+export const fetchShowById = (id) => {
+  return axios.get(`${API_BASE_URL}/id/${id}`);
 };
 
