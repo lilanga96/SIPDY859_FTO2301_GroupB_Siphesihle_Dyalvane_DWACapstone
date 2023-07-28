@@ -9,11 +9,11 @@ import Favorites from './components/favourites';
 
 const App = () => {
   const [favorites, setFavorites] = React.useState([]);
-  const [favoriteSeasonEpisodes, setFavoriteSeasonEpisodes] = React.useState([]); // Define favoriteSeasonEpisodes state
 
 
-  const removeFromFavorites = (showId) => {
-    setFavorites(favorites.filter((show) => show.id !== showId));
+
+  const removeFromFavorites = (episodeId) => {
+    setFavorites(favorites.filter((season) => season.id !== episodeId));
   };
 
   return (
@@ -29,7 +29,7 @@ const App = () => {
                 favorites={favorites}
                 setFavorites={setFavorites}
                 removeFromFavorites={removeFromFavorites}
-                favoriteSeasonEpisodes={favoriteSeasonEpisodes} // Pass the favoriteSeasonEpisodes prop
+              
               />
             }
           />

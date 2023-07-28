@@ -42,9 +42,9 @@ const Favorites = ({ favorites, removeFromFavorites }) => {
           <option value="dateUpdated-desc">Date Updated (Descending)</option>
         </select>
       </div>
-
+        <div className="favorites-container">
       {sortedFavorites.map((favorite) => (
-        <div key={favorite.id}>
+        <div key={favorite.id} className="favorite-card">
           <Link to={`/show/${favorite.id}`}>{favorite.title}</Link>
           <img className="img" src={favorite.image} alt={favorite.title} />
           <p>Number of Seasons: {favorite.seasons}</p>
@@ -53,10 +53,12 @@ const Favorites = ({ favorites, removeFromFavorites }) => {
           <p>Added Date: {favorite.addedDate}</p>
           <button onClick={() => removeFromFavorites(favorite.id)}>Remove from Favorites</button>
         </div>
+
       ))}
+
+    </div>
     </div>
   );
 };
 
 export default Favorites;
-
