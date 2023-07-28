@@ -1,4 +1,4 @@
-// SeasonView.js
+
 import React from 'react';
 import H5AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';

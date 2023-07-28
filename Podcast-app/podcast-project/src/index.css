@@ -1,6 +1,3 @@
-/* .img{
-  width: 200px;
-} */
 
 
 
@@ -12,7 +9,7 @@
 
 
 
-/* Individual show card */
+
 .show-card {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -36,34 +33,30 @@
 }
 
 
-/* Show card title */
+
 .show-card h2 {
   font-size: 20px;
   margin-bottom: 5px;
 }
 
-/* Show card image */
 .show-card img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
-/* Show card description */
+
 .show-card p {
   font-size: 16px;
 }
 
-/* seasonCards.css */
-
-/* Container for the season cards */
 .season-cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 20px;
 }
 
-/* Individual season card */
+
 .season-card {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -72,20 +65,20 @@
   background-color: #fff;
 }
 
-/* Season card title */
+
 .season-card h3 {
   font-size: 18px;
   margin-bottom: 5px;
 }
 
-/* Season card image */
+
 .season-card img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
-/* Season card description */
+
 .season-card p {
   font-size: 14px;
 }
@@ -95,15 +88,12 @@
 }
 
 
-
-/* styles.css */
-
 .header {
-  background-color: whitesmoke; /* Nice and elegant color */
+  background-color: whitesmoke; 
   color: black;
   padding: 20px;
   box-sizing: border-box;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   height: 85px;
   margin-bottom: 1rem;
   flex-wrap: wrap;
@@ -122,7 +112,7 @@
 .navbar-title {
   font-size: 20px;
    margin-bottom: 2rem;
-  text-decoration: none; /* Remove underline from the link */
+  text-decoration: none; 
   color: black;
 }
 
@@ -187,9 +177,7 @@
   margin: 5px 0;
 }
 
-/* styles.css */
 
-/* Container for all the favorite show cards */
 .favorites-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -197,7 +185,7 @@
   padding: 20px;
 }
 
-/* Individual favorite show card */
+
 .favorite-card {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -236,7 +224,7 @@
 .favorite-card button:hover {
   background-color: #0056b3;
 }
-/* Media Query for Mobile Devices */
+
 @media (max-width: 480px) {
   .show-cards-container {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

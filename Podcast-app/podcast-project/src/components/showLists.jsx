@@ -32,7 +32,7 @@ const ShowLists = ({ favorites, setFavorites }) => {
   const sortedAndFilteredShows = React.useMemo(() => {
     let filtered = [...shows];
 
-    // Filter shows based on search query
+    
     if (searchQuery.trim() !== '') {
       filtered = filtered.filter(
         (show) =>
@@ -40,7 +40,7 @@ const ShowLists = ({ favorites, setFavorites }) => {
       );
     }
 
-    // Sort shows based on selected criteria
+  
     return filtered.sort((a, b) => {
       if (sortBy === 'title') {
         const titleA = a.title.toLowerCase();

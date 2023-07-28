@@ -1,8 +1,7 @@
-// src/components/ShowDetails.js
+
 import { useParams } from 'react-router-dom';
 import { fetchShowById } from './API';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import 'react-h5-audio-player/lib/styles.css'
 import SeasonView from './seasonView';
 
