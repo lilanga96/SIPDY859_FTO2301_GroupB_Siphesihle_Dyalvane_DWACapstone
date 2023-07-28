@@ -31,7 +31,7 @@ const ShowDetails = () => {
     <div>
       <h2>{show.title}</h2>
       <p>{show.description}</p>
-      
+       
       {show.seasons.map((season) => (
         <div key={season.season}>
           <h3 onClick={() => handleSeasonClick(season.season)}>
@@ -39,12 +39,15 @@ const ShowDetails = () => {
           </h3>
           <img className='SeasonImage' src={season.image} alt={`Season ${season.season}`} />
           <p>Number of Episodes: {season.episodes.length}</p>
+
+          
           
           
 
           {expandedSeason === season.season && (
             <SeasonView season={season} />
           )}
+          
 
           
           

@@ -1,7 +1,7 @@
 import { fetchAllShows } from "./API";
 import React from "react";
 import { Link } from "react-router-dom";
-import Fuse from "fuse.js";
+
 
 
 const ShowLists = ({ favorites, setFavorites }) => {
@@ -9,7 +9,7 @@ const ShowLists = ({ favorites, setFavorites }) => {
   const [sortOrder, setSortOrder] = React.useState('asc');
   const [sortBy, setSortBy] = React.useState('title');
   const [searchQuery, setSearchQuery] = React.useState('');
-  
+
   const addToFavorites = (showId) => {
     const showToAdd = shows.find((show) => show.id === showId);
     if (showToAdd) {
@@ -70,10 +70,28 @@ const ShowLists = ({ favorites, setFavorites }) => {
     return <div>Loading...</div>;
   }
 
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
+
   return (
     <div>
-      <h1>Podcast App</h1>
+      <div className="header">
+        <div className="navbar">
+        <h1>Podcast App</h1>
+        <div className='navbar-title'>
+              <Link to="/">ShowLists</Link>
+              </div>
+            
+              <div className='navbar-title'>
+              <Link to="/favorites">Favorites</Link>
+              </div>
       <div>
+
+        <div className="sort-bar">
+        
         <label>Sort By:</label>
         <select
           value={`${sortBy}-${sortOrder}`}
@@ -88,23 +106,36 @@ const ShowLists = ({ favorites, setFavorites }) => {
           <option value="dateUpdated-asc">Date Updated (Ascending)</option>
           <option value="dateUpdated-desc">Date Updated (Descending)</option>
         </select>
-      </div>
+        </div>
+      
       <div>
-        <label>Search By Title:</label>
+        </div>
+        
+        <label className="search-bar">Search By Title:</label>
         <input type="text" value={searchQuery} onChange={handleSearch} />
+      
+      </div>
+      </div>
+      
       </div>
 
+
+       <div className="show-cards-container">
        {sortedAndFilteredShows.map((show) => (
-        <div key={show.id}>
-          <Link to={`/show/${show.id}`}>{show.title}</Link>
-          <img className="img" src={show.image} alt={show.title} />
+        <div className="show-card" key={show.id}>
+        
+          <Link to={`/show/${show.id}`}> <img src={show.image} alt={show.title}/></Link>
+          <h3>{show.title}</h3>
           <p>Number of Seasons: {show.seasons}</p>
-          <p>Last Updated: {show.updated}</p>
+          <p>Last Updated: {formatDate(show.updated)}</p>
           <p>Genres: {show.genres.map((genreId) => genreLookupTable[genreId]).join(', ')}</p>
           <button onClick={() => { addToFavorites(show.id); alert("Added to favorites!"); }}>Add to Favorites</button>
+           
+        
         </div>
       )) 
      }
+     </div>
     
      </div>
   );
