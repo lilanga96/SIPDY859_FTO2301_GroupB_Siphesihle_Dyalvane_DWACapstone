@@ -57,6 +57,9 @@ const Favorites = ({ favorites, removeFromFavorites }) => {
       ))}
 
     </div>
+    <Link to='/'>
+        <button className='home-btn'> Home</button>
+      </Link>
     </div>
   );
 };

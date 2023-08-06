@@ -2,6 +2,7 @@
 import React from 'react';
 import H5AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
+import { Link } from 'react-router-dom';
 
 const SeasonView = ({ season, favorites, setFavorites }) => {
   const [expanded, setExpanded] = React.useState(false);
@@ -22,6 +23,8 @@ const SeasonView = ({ season, favorites, setFavorites }) => {
   return (
     <div>
       <h3 onClick={handleSeasonClick}>Season {season.season}</h3>
+      <img className='img' src={season.image} alt={`Season ${season.season} Image`} />
+      <p>Number of Episodes: {season.episodes.length}</p>
       {expanded && (
         <div className="season-cards-container">
           {season.episodes.map((episode) => (
@@ -39,6 +42,7 @@ const SeasonView = ({ season, favorites, setFavorites }) => {
           ))}
         </div>
       )}
+    
     </div>
   );
 };

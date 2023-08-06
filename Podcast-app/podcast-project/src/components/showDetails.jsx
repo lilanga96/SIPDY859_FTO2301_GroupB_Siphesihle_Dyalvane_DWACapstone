@@ -1,69 +1,53 @@
-
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { fetchShowById } from './API';
-import React from 'react';
-import 'react-h5-audio-player/lib/styles.css'
 import SeasonView from './seasonView';
 
 const ShowDetails = () => {
+  const [show, setShow] = useState(null);
+  const [favorites, setFavorites] = useState([]);
+
   const { id } = useParams();
-  const [show, setShow] = React.useState(null);
-  const [expandedSeason, setExpandedSeason] = React.useState(null);
 
+  useEffect(() => {
+    fetchShowData();
+  }, []);
 
-  const handleSeasonClick = (season) => {
-    setExpandedSeason((prevSeason) => (prevSeason === season ? null : season));
+  const fetchShowData = async () => {
+    try {
+      const response = await fetchShowById(id);
+      const data = response.data;
+      setShow(data);
+    } catch (error) {
+      console.error('Error fetching show details:', error);
+    }
   };
-
-   
-
-  React.useEffect(() => {
-    fetchShowById(id)
-      .then((response) => setShow(response.data))
-      .catch((error) => console.error('Error fetching show details:', error));
-  }, [id]);
 
   if (!show) {
     return <div>Loading...</div>;
   }
 
-  
-
   return (
     <div>
-      
       <h2>{show.title}</h2>
       <p>{show.description}</p>
-       
-       <div className='s-cards-container'>
-      {show.seasons.map((season) => (
-        <div key={season.season} className='s-card'>
-          <h3 onClick={() => handleSeasonClick(season.season)}>
-          Season {season.season}
-          </h3>
-          <img src={season.image} alt={`Season ${season.season}`} />
-          <p>Number of Episodes: {season.episodes.length}</p>
-
+      <h3>Seasons:</h3>
+      <div className='season-cards-container'>
+        {show.seasons.map((season) => (
+          <SeasonView
+            key={season.season}
+            season={season}
+            favorites={favorites}
+            setFavorites={setFavorites}
+          />
           
-
-          
-          
-          
-
-          {expandedSeason === season.season && (
-            <SeasonView season={season} 
-           />
-          )}
-          
-
-          
-          
-        </div>
-      ))}
+        ))}
       </div>
-      
-  
+      <Link to='/'>
+        <button className='home-btn'> Home</button>
+      </Link>
     </div>
   );
 };
+
 export default ShowDetails;
